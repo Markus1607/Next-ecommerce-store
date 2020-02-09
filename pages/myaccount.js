@@ -21,14 +21,11 @@ export default class MyAccount extends React.Component {
     const { data, included, meta } = await getOrders(token)
 
     const orders = data.map(order => {
-      // const orderItems = order.relationships.items.data
-      // const includedItems = included.items.map(i => i.id === )
 
       return {
         ...order
       }
     })
-    console.log(orders)
 
     this.setState({
       loading: false,
@@ -36,9 +33,6 @@ export default class MyAccount extends React.Component {
       included,
       meta
     })
-
-    console.log(data)
-    console.log(included)
   }
 
   render() {

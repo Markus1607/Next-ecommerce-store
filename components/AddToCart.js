@@ -1,4 +1,6 @@
-import { Input, Button, Label } from 'semantic-ui-react'
+import { Input, Button, Label } from 'semantic-ui-react';
+import { Fragment } from 'react';
+import  CartItemQuantity from './CartItemQuantity'; 
 
 import { addToCart } from '../lib/moltin'
 
@@ -21,7 +23,7 @@ export default class AddToCart extends React.Component {
 
     this.setState({
       loading: false,
-      quantity: 1
+      quantity: this.state.quantity
     })
   }
 
@@ -34,20 +36,24 @@ export default class AddToCart extends React.Component {
     const { loading, quantity } = this.state
 
     return (
-      <Input
-        type="number"
-        placeholder="Quantity"
-        value={quantity}
-        onChange={e => this._handleChange(e)}
-        action={{
-          color: 'orange',
-          content: 'Add to Cart',
-          icon: 'plus cart',
-          onClick: this._handleSubmit,
-          loading,
-          disabled: loading
-        }}
+      <Fragment>
+        <Input
+          type="number"
+          placeholder="Quantity"
+          min="0"
+          value={quantity}
+          onChange={e => this._handleChange(e)}
+          action={{
+            color: 'orange',
+            content: 'Add to Cart',
+            icon: 'plus cart',
+            onClick: this._handleSubmit,
+            loading,
+            disabled: loading
+          }}
       />
+        <CartItemQuantity quantity={quantity}/>
+      </Fragment>
     )
   }
 }

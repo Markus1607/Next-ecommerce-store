@@ -67,7 +67,6 @@ export default class Cart extends React.Component {
         completed: true
       })
     } catch (e) {
-      console.log(e)
     }
   }
 

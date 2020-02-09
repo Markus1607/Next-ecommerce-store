@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import { Menu, Container, Image, Icon } from 'semantic-ui-react'
+import CartItemQuantity from './CartItemQuantity'; 
 
 Router.onRouteChangeStart = url => NProgress.start()
 Router.onRouteChangeComplete = () => NProgress.done()
@@ -44,6 +45,7 @@ export default ({ token }) => (
 
         <Link href="/cart" passHref>
           <Menu.Item position="right" name="cart">
+            <CartItemQuantity quantity={quantity}/>
             <Icon name="cart" />
             Cart
           </Menu.Item>

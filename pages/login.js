@@ -36,7 +36,6 @@ export default class Login extends React.Component {
       localStorage.setItem('mcustomer', id)
       Router.push('/myaccount')
     } catch (e) {
-      console.log(e.message)
       this.setState({
         loading: false,
         errors: e
